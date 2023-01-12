@@ -2,32 +2,18 @@
 
 public class ListPatternMatchingTests
 {
-
-    // Start
     [Fact]
     public void ListPatternMatchTestStrings()
     {
         string[] items = new[] { "You", "killed", "my", "father" };
 
-        Assert.True(items is ["You", "killed", "my", "father" ]);
-        Assert.True(items is [.., "father"]);
-        Assert.True(items is ["You", .., "father"]);
-        Assert.True(items is [..]);
-        Assert.True(items is [_, "killed", "my", _]);
-        Assert.False(items is []);
-        Assert.False(items is ["You", "killed"]);
-        // Assert.True(items is [..,"killed", "my", ..]);  // Contains is not supported!!!
-        Assert.True(items[1..^1] is ["killed", "my"]);
-
-
-        Assert.True(items is [ ['Y', ..], .., ['f', ..]]);
-
-        if (items is ["You", .., string lastWord])
-        {
-            Assert.Equal("father", lastWord);
-        }
-        else Assert.Fail("pattern match is false");
     }
+
+
+
+
+
+
 
      [Fact]
     public void SpanPatternMatchTestChar()

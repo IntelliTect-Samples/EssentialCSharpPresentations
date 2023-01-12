@@ -7,29 +7,24 @@ public class AutoDefaultStructsTests
     public void StructDefaultConstructor()
     {
         Coordinate coordinate = default;
-        Assert.NotEqual<double>(42, coordinate.Latitude);
-        Assert.NotEqual<string>("", coordinate.Name);
+
     }
 
     [Fact]
     public void StructDefaultConstructorOnArray()
     {
         Coordinate[] coordinates = new Coordinate[1];
-        Assert.NotEqual<double>(42, coordinates[0].Latitude);
-        Assert.NotEqual<string>("", coordinates[0].Name);
+
     }
 
     [Fact]
     public void StructOurConstructor()
     {
         Coordinate coordinate = new(30);
-        Assert.Equal<double>(30, coordinate.Latitude);
-        Assert.Equal<double>(1, coordinate.Longitude);
-        Assert.Equal<string>("", coordinate.Name);
+
     }
 }
 
-// Start
 public readonly partial record struct Coordinate 
 {
     public Coordinate()

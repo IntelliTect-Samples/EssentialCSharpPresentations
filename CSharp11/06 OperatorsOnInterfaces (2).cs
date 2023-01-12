@@ -19,17 +19,14 @@ public class GenericMathSupport
     }
 
     [Fact]
-    public void AddTest()
+    public void AddOfTTest()
     {
-        int number = Add(42, 77);
-        Assert.Equal<int>(42+77, number);
+
     }
 
-    //private double Add(double left, double right) => left + right;
-    //private decimal Add(decimal left, decimal right) => left + right;
+    private double Add(double left, double right) => left + right;
+    private decimal Add(decimal left, decimal right) => left + right;
 
-    //INumber<T> indirectly includes:
-    //  static abstract TResult operator +(TSelf left, TOther right);
     private T Add<T>(T left, T right)
         where T : INumber<T> => left + right;
 }
