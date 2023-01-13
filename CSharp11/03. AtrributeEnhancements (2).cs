@@ -10,13 +10,6 @@ namespace CSharp11;
 
 public class ExpectedExceptionTests
 {
-    public ITestOutputHelper OutputHelper { get; }
-
-    public ExpectedExceptionTests(ITestOutputHelper outputHelper)
-    {
-        OutputHelper = outputHelper;
-    }
-
     [Theory()]
     [InlineData(nameof(NameOfInAttributeTest))]
     public void NameOfInAttributeTest(string methodName)
@@ -30,18 +23,6 @@ public class ExpectedExceptionTests
     public void TypeOfTest(Type type)
     {
         Assert.Equal<Type>(typeof(string), type);
-        Assert.Equal<string>("String", type.Name);
-    }
-
-    [Theory()]
-    [InlineData(typeof(InlineData<string>))]
-    public void TypeOfTestFileScopedName(Type type)
-    {
-        Assert.Equal<Type>(typeof(InlineData<string>), type);
-
-        Assert.NotEqual<string>("InlineData`1", type.Name);
-
-        OutputHelper.WriteLine(typeof(InlineData<string>).Name);
     }
 
     [Theory()]
@@ -50,11 +31,29 @@ public class ExpectedExceptionTests
     {
         Assert.Equal<Type>(typeof(string), type);
     }
+
+    [Theory()]
+    [InlineData(typeof(InlineDataAttribute<string>))]
+    public void TypeOfTestFileScopedName(Type type)
+    {
+        Assert.Equal<Type>(typeof(InlineDataAttribute<string>), type);
+
+        Assert.NotEqual<string>("InlineDataAttribute`1", type.Name);
+
+        OutputHelper.WriteLine(typeof(InlineDataAttribute<string>).Name);
+    }
+    
+    public ITestOutputHelper OutputHelper { get; }
+    public ExpectedExceptionTests(ITestOutputHelper outputHelper)
+    {
+        OutputHelper = outputHelper;
+    }
+
 }
 
 
-// File scope types
-file class InlineData<T> : DataAttribute
+// File scoped types
+file class InlineDataAttribute<T> : DataAttribute
 {
     public override IEnumerable<object[]> GetData(MethodInfo testMethod)
     {

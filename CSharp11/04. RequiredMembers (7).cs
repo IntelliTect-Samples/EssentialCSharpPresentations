@@ -7,21 +7,26 @@ public class RequiredMemberTests
     [Fact]
     public void NonRequiredMembersAreNull()
     {
-        Person person = new() { LastName="Montoya", Dob=DateOnly.FromDateTime( DateTime.Now.AddYears(-42)) };
-
+        Person person = new() { 
+            LastName="Montoya", 
+            Dob=DateOnly.FromDateTime( DateTime.Now.AddYears(-42)) };
     }
+    
     [Fact]
     public void RequiredValuesAreAllSet()
     {
-        Person person = new() { FirstName = "Inigo", LastName="Montoya", Dob= DateOnly.FromDateTime(DateTime.Now.AddYears(-42)) };
-
+        Person person = new() { 
+            FirstName = "Inigo", 
+            LastName="Montoya", 
+            Dob= DateOnly.FromDateTime(DateTime.Now.AddYears(-42)) };
     }
 
     [Fact]
     public void LastNameIsNotNull()
     {
-        Person person = new("Inigo" ) {LastName = "Montoya", Dob=DateOnly.FromDateTime(DateTime.Now.AddYears(-42)) };
-
+        Person person = new("Inigo" ) {
+            LastName = "Montoya", 
+            Dob=DateOnly.FromDateTime(DateTime.Now.AddYears(-42)) };
     }
 }
 

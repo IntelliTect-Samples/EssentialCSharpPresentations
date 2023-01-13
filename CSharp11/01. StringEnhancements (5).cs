@@ -1,8 +1,8 @@
 ﻿namespace CSharp11;
 
 // Raw string literals.
-// UTF-8 as runtime constant
 // New line in interpolation
+// UTF-8 as runtime constant
 
 public class StringEnhancements
 {
@@ -21,6 +21,6 @@ public class StringEnhancements
     ""Phrase"": ""Stop saying that""
 }}";
 
-        Assert.Equal<string>(expected,actual);
+        Assert.Equal<string>(expected, actual);
     }
 }

@@ -27,6 +27,4 @@ public class GenericMathSupport
     private double Add(double left, double right) => left + right;
     private decimal Add(decimal left, decimal right) => left + right;
 
-    private T Add<T>(T left, T right)
-        where T : INumber<T> => left + right;
 }
