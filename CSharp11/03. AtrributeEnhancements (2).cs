@@ -34,14 +34,14 @@ public class ExpectedExceptionTests
     }
 
     [Theory()]
-    [InlineData(typeof(InlineData<string>))]
+    [InlineData(typeof(InlineDataAttribute<string>))]
     public void TypeOfTestFileScopedName(Type type)
     {
-        Assert.Equal<Type>(typeof(InlineData<string>), type);
+        Assert.Equal<Type>(typeof(InlineDataAttribute<string>), type);
 
-        Assert.NotEqual<string>("InlineData`1", type.Name);
+        Assert.NotEqual<string>("InlineDataAttribute`1", type.Name);
 
-        OutputHelper.WriteLine(typeof(InlineData<string>).Name);
+        OutputHelper.WriteLine(typeof(InlineDataAttribute<string>).Name);
     }
 
     [Theory()]
@@ -54,7 +54,7 @@ public class ExpectedExceptionTests
 
 
 // File scope types
-file class InlineData<T> : DataAttribute
+file class InlineDataAttribute<T> : DataAttribute
 {
     public override IEnumerable<object[]> GetData(MethodInfo testMethod)
     {

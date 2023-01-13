@@ -9,17 +9,23 @@ public class StringEnhancements
     [Fact]
     public void RawStringLiterals()
     {
-        const string name = "Inigo Montoya";
+        ReadOnlySpan<byte> name = "Mark"u8;
+
+        const string otherName = "inigo montoya";
 
         const string expected = $@"{{
-    ""Name"": ""{name}"",
+    ""Name"": ""{otherName}"",
     ""Phrase"": ""Stop saying that""
 }}";
 
-        const string actual = $@"{{
-    ""Name"": ""{name}"",
-    ""Phrase"": ""Stop saying that""
-}}";
+
+        const string actual = $$$"""
+    {
+        "Name": "{{{
+            otherName}}}",
+        "Phrase": "Stop {{}}saying that"
+    }
+    """;
 
         Assert.Equal<string>(expected,actual);
     }

@@ -22,7 +22,7 @@
 
 // Kevin Bost- Kevin@IntelliTect.com
 //      Microsoft MVP Extraordinaire
-// Mark Michaelis - mark@IntelliTect.com
+// Mark Michaelis - Mark@IntelliTect.com
 //      Chief Lackey
 
 

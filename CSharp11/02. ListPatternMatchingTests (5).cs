@@ -7,15 +7,24 @@ public class ListPatternMatchingTests
     {
         string[] items = new[] { "You", "killed", "my", "father" };
 
+        Assert.True(items is ["You", "killed", "my", "father" ]);
+        Assert.True(items is [.., "father" ]);
+        Assert.True(items is ["You", .., "father" ]);
+        Assert.True(items is ["You", _, _, "father"]);
+        //Assert.True(items is [.., "killed", "my", ..]);
+        Assert.False(items is []);
+        Assert.True(items[1..^1] is ["killed", "my"]);
+
+        Assert.True(items is [ ['Y', ..], .., [.., 'r']]);
+        if (items is ["You", .., string lastWord])
+        {
+            Assert.Equal("father", lastWord);
+        }
+
     }
 
 
-
-
-
-
-
-     [Fact]
+    [Fact]
     public void SpanPatternMatchTestChar()
     {
         Span<char> items = "Hello World".ToArray().AsSpan();
