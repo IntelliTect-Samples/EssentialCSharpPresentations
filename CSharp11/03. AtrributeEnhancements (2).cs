@@ -11,10 +11,10 @@ namespace CSharp11;
 public class ExpectedExceptionTests
 {
     [Theory()]
-    [InlineData(nameof(NameOfInAttributeTest))]
+    [InlineData(nameof(methodName))]
     public void NameOfInAttributeTest(string methodName)
     {
-        Assert.Equal<string>(nameof(NameOfInAttributeTest), methodName);
+        Assert.Equal<string>(nameof(methodName), methodName);
     }
 
     [Theory()]
