@@ -22,7 +22,7 @@
  */
 
 
-// Kevin Bost- Kevin@IntelliTect.com
-//      Microsoft MVP Extraordinaire
-// Mark Michaelis - Mark@IntelliTect.com
+// Meg Woodford - meg.woodford@IntelliTect.com
+//      Software Engineer Extraordinaire 
+// Mark Michaelis - Mark@IntelliTect.com 
 //      Chief Lackey
