@@ -16,5 +16,17 @@ public partial class RegularExpressionAtributeTests
 
 public partial record struct Coordinate
 {
-    
+    [GeneratedRegex(@"(?<Left>\d+),(?<Right>\d+)")]
+    private static partial Regex Regex();
+
+    public Coordinate(string text)
+    {
+        Match match = Regex().Match(text);
+        if (match.Success)
+        {
+            Latitude = double.Parse(match.Groups["Left"].Value);
+            Longitude = double.Parse(match.Groups["Right"].Value);
+        }
+        Name = "";
+    }
 }

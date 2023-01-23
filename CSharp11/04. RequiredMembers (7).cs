@@ -1,4 +1,6 @@
-﻿namespace CSharp11;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace CSharp11;
 
 // Discuss DateOnly
 
@@ -8,6 +10,7 @@ public class RequiredMemberTests
     public void NonRequiredMembersAreNull()
     {
         Person person = new() { 
+            FirstName = "Inigo",
             LastName="Montoya", 
             Dob=DateOnly.FromDateTime( DateTime.Now.AddYears(-42)) };
     }
@@ -25,21 +28,21 @@ public class RequiredMemberTests
     public void LastNameIsNotNull()
     {
         Person person = new("Inigo" ) {
-            LastName = "Montoya", 
             Dob=DateOnly.FromDateTime(DateTime.Now.AddYears(-42)) };
     }
 }
 
 public class Person
 {
+    [SetsRequiredMembers]
     public Person(string firstName)
     {
         FirstName=firstName;
     }
     public Person() { }
 
-    public string? FirstName { get; set; }
-    public string? LastName { get; set; }
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
     public DateOnly? Dob { get; set; }
 }
 

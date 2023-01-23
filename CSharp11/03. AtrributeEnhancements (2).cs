@@ -33,7 +33,7 @@ public class ExpectedExceptionTests
     }
 
     [Theory()]
-    [InlineData(typeof(InlineDataAttribute<string>))]
+    [InlineData<InlineDataAttribute<string>>]
     public void TypeOfTestFileScopedName(Type type)
     {
         Assert.Equal<Type>(typeof(InlineDataAttribute<string>), type);

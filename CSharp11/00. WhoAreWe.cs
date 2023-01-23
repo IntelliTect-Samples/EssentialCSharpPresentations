@@ -22,7 +22,7 @@
  */
 
 
-// Meg Woodford - meg.woodford@IntelliTect.com
-//      Software Engineer Extraordinaire 
-// Mark Michaelis - Mark@IntelliTect.com 
+// Mark Michaelis - mark@IntelliTect.com 
 //      Chief Lackey
+// Meg Woodford - meg.woodford@IntelliTect.com
+//      Software Engineer/Intern Wrangler 

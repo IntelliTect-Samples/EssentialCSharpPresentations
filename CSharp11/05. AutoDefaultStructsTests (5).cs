@@ -7,6 +7,7 @@ public class AutoDefaultStructsTests
     public void StructDefaultConstructor()
     {
         Coordinate coordinate = default;
+        //Assert.Equal(42, coordinate.Latitude);
 
     }
 
@@ -14,6 +15,7 @@ public class AutoDefaultStructsTests
     public void StructDefaultConstructorOnArray()
     {
         Coordinate[] coordinates = new Coordinate[1];
+        //Assert.Equal(42, coordinates[0].Latitude);
 
     }
 
@@ -21,6 +23,7 @@ public class AutoDefaultStructsTests
     public void StructOurConstructor()
     {
         Coordinate coordinate = new(30);
+        Assert.Equal(30, coordinate.Latitude);
 
     }
 }
