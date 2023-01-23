@@ -1,4 +1,6 @@
-﻿namespace CSharp11;
+using System.Diagnostics.CodeAnalysis;
+
+namespace CSharp11;
 
 // Discuss DateOnly
 
@@ -6,6 +8,8 @@ public class RequiredMemberTests
 {
     public class Person
     {
+
+        [SetsRequiredMembers]
         public Person(string firstName)
         {
             FirstName=firstName;

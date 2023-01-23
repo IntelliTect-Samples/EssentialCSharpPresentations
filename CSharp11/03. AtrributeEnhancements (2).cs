@@ -18,10 +18,10 @@ public class ExpectedExceptionTests
     }
 
     [Theory()]
-    [InlineData(nameof(NameOfInAttributeTest))]
+    [InlineData(nameof(methodName))]
     public void NameOfInAttributeTest(string methodName)
     {
-        Assert.Equal<string>(nameof(NameOfInAttributeTest), methodName);
+        Assert.Equal<string>(nameof(methodName), methodName);
     }
 
     [Theory()]
@@ -34,6 +34,13 @@ public class ExpectedExceptionTests
     }
 
     [Theory()]
+    [InlineData<string>]
+    public void TypeOfGenericTest(Type type)
+    {
+        Assert.Equal<Type>(typeof(string), type);
+    }
+
+    [Theory()]
     [InlineData(typeof(InlineData<string>))]
     public void TypeOfTestFileScopedName(Type type)
     {
@@ -42,13 +49,6 @@ public class ExpectedExceptionTests
         Assert.NotEqual<string>("InlineData`1", type.Name);
 
         OutputHelper.WriteLine(typeof(InlineData<string>).Name);
-    }
-
-    [Theory()]
-    [InlineData<string>]
-    public void TypeOfGenericTest(Type type)
-    {
-        Assert.Equal<Type>(typeof(string), type);
     }
 }
 
